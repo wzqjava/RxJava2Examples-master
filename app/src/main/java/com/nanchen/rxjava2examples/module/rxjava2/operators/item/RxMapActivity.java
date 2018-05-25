@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.operators.item;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.nanchen.rxjava2examples.R;
@@ -7,7 +8,6 @@ import com.nanchen.rxjava2examples.R;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 
@@ -31,27 +31,53 @@ public class RxMapActivity extends RxOperatorBaseActivity {
         return getString(R.string.rx_map);
     }
 
+    @SuppressLint("CheckResult")
     @Override
     protected void doSomething() {
+//        Observable.create(new ObservableOnSubscribe<Integer>() {
+//            @Override
+//            public void subscribe(@NonNull ObservableEmitter<Integer> e) throws Exception {
+//                e.onNext(1);
+//                e.onNext(2);
+//                e.onNext(3);
+//            }
+//        }).map(new Function<Integer, String>() {
+//            @Override
+//            public String apply(@NonNull Integer integer) throws Exception {
+//                return "This is result " + integer;
+//            }
+//        }).subscribe(new Consumer<String>() {
+//            @Override
+//            public void accept(@NonNull String s) throws Exception {
+//                mRxOperatorsText.append("accept : " + s +"\n");
+//                Log.e(TAG, "accept : " + s +"\n" );
+//            }
+//        });
+
         Observable.create(new ObservableOnSubscribe<Integer>() {
+
             @Override
-            public void subscribe(@NonNull ObservableEmitter<Integer> e) throws Exception {
+            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
                 e.onNext(1);
                 e.onNext(2);
                 e.onNext(3);
             }
         }).map(new Function<Integer, String>() {
+
             @Override
-            public String apply(@NonNull Integer integer) throws Exception {
-                return "This is result " + integer;
+            public String apply(Integer integer) throws Exception {
+                return "String --- " + integer;
             }
         }).subscribe(new Consumer<String>() {
             @Override
-            public void accept(@NonNull String s) throws Exception {
+            public void accept(String s) throws Exception {
+                Log.e("wzq",s);
                 mRxOperatorsText.append("accept : " + s +"\n");
-                Log.e(TAG, "accept : " + s +"\n" );
             }
         });
+
+
+
     }
 
 }

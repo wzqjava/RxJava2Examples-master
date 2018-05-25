@@ -21,6 +21,17 @@ import io.reactivex.disposables.Disposable;
  * Date: 2017-06-19  17:06
  */
 
+/**
+ * tivity: onSubscribe : false
+ 05-24 08:12:49.289 13211-13211/com.nanchen.rxjava2examples E/RxCreateActivity: Observable emit 1
+ 05-24 08:12:49.289 13211-13211/com.nanchen.rxjava2examples E/RxCreateActivity: onNext : value : 1
+ 05-24 08:12:49.289 13211-13211/com.nanchen.rxjava2examples E/RxCreateActivity: Observable emit 2
+ 05-24 08:12:49.291 13211-13211/com.nanchen.rxjava2examples E/RxCreateActivity: onNext : value : 2
+ 05-24 08:12:49.292 13211-13211/com.nanchen.rxjava2examples E/RxCreateActivity: onNext : isDisposable : true
+ 05-24 08:12:49.293 13211-13211/com.nanchen.rxjava2examples E/RxCreateActivity: Observable emit 3
+ 05-24 08:12:49.294 13211-13211/com.nanchen.rxjava2examples E/RxCreateActivity: Observable emit 4
+ */
+
 public class RxCreateActivity extends RxOperatorBaseActivity {
     private static final String TAG = "RxCreateActivity";
 
